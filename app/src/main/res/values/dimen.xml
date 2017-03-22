@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="movie_detail_title_size">50dp</dimen>
+    <dimen name="movie_detail_title_paddingLeft">20dp</dimen>
+    <dimen name="movie_detail_title_layout_height">100dp</dimen>
+    <dimen name="movie_detail_img_margin">10dp</dimen>
+    <dimen name="movie_detail_year_size">30dp</dimen>
+    <dimen name="movie_detail_length_size">25dp</dimen>
+    <dimen name="movie_detail_score_size">20dp</dimen>
+    <dimen name="movie_detail_marginBottom">10dp</dimen>
+    <dimen name="margin_left_right">30dp</dimen>
+    <dimen name="blank">20dp</dimen>
+</resources>
