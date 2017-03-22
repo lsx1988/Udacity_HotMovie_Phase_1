@@ -18,7 +18,7 @@ import static android.content.ContentValues.TAG;
 
 public class NetWorkUtils {
 
-    private static final String SELF_KEY = "4fd3733e80952627b4ed03bb555690be";
+    private static final String SELF_KEY = "";
 
     private static final String API_KEY = "api_key";
 
