@@ -11,6 +11,9 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by shixunliu on 22/3/17.
  */
@@ -21,17 +24,16 @@ public class MovieDetailFragment extends Fragment {
 
     private Movie mMovie = null;
 
-    private TextView mTitle = null
-            , mYear = null
-            , mVote = null
-            , mAbstract = null
-            , mLanguage = null;
-
-    private ImageView mImageView = null;
+    @BindView(R.id.movie_title) TextView mTitle;
+    @BindView(R.id.movie_year) TextView mYear;
+    @BindView(R.id.movie_vote) TextView mVote;
+    @BindView(R.id.movie_abstract) TextView mAbstract;
+    @BindView(R.id.movie_language) TextView mLanguage;
+    @BindView(R.id.movie_pic) ImageView mImageView;
 
     public static MovieDetailFragment newInstance(Movie movie) {
         Bundle args = new Bundle();
-        args.putSerializable(ARGS_MOIVE, movie);
+        args.putParcelable(ARGS_MOIVE, movie);
 
         MovieDetailFragment fragment = new MovieDetailFragment();
         fragment.setArguments(args);
@@ -41,19 +43,15 @@ public class MovieDetailFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mMovie = (Movie) getArguments().getSerializable(ARGS_MOIVE);
+        mMovie = getArguments().getParcelable(ARGS_MOIVE);
+
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.movie_detail_layout, container, false);
-        mTitle = (TextView) view.findViewById(R.id.movie_title);
-        mYear = (TextView) view.findViewById(R.id.movie_year);
-        mVote = (TextView) view.findViewById(R.id.movie_vote);
-        mAbstract = (TextView) view.findViewById(R.id.movie_abstract);
-        mLanguage = (TextView) view.findViewById(R.id.movie_language);
-        mImageView = (ImageView) view.findViewById(R.id.movie_pic);
+        ButterKnife.bind(this, view);
 
         mTitle.setText(mMovie.getMovieTitle());
         mVote.setText(mMovie.getMovieRate() + " / 10");
@@ -65,7 +63,11 @@ public class MovieDetailFragment extends Fragment {
         String movieImg = mMovie.getMoviePoster();
         String imgPath = basePath + movieImg;
 
-        Picasso.with(getContext()).load(imgPath).into(mImageView);
+        Picasso.with(getContext())
+                .load(imgPath)
+                .placeholder(R.mipmap.ic_launcher)
+                .error(R.mipmap.ic_launcher)
+                .into(mImageView);
 
         return view;
     }

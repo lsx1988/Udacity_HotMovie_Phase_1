@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <LinearLayout
@@ -12,68 +13,78 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/movie_detail_title_size"
-            android:hint="Movie Title"
+            tools:text="Movie title"
             android:gravity="center_vertical"
             android:paddingLeft="@dimen/movie_detail_title_paddingLeft"
             android:background="@color/bg_MovieTitle"
             android:textColor="@color/tc_MovieTitle"
             android:layout_marginBottom="20dp"/>
-        <LinearLayout
-            android:orientation="horizontal"
+        <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/movie_pic"
-                android:layout_width="150dp"
-                android:layout_height="250dp"
-                android:layout_marginLeft="@dimen/movie_detail_img_margin"
-                android:layout_marginRight="@dimen/movie_detail_img_margin"
-                android:scaleType="centerCrop"/>
+            android:layout_height="300dp">
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/movie_year"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="Movie Year"
-                    android:textSize="@dimen/movie_detail_year_size"
-                    android:layout_marginBottom="@dimen/movie_detail_marginBottom"/>
-                <TextView
-                    android:id="@+id/movie_language"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="movie language"
-                    android:textSize="@dimen/movie_detail_length_size"
-                    android:textStyle="italic"
-                    android:layout_marginBottom="@dimen/movie_detail_marginBottom"/>
-                <TextView
-                    android:id="@+id/movie_vote"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="2/10"
-                    android:textSize="@dimen/movie_detail_score_size"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/movie_pic"
+                    android:layout_width="150dp"
+                    android:layout_height="250dp"
+                    android:layout_marginLeft="@dimen/movie_detail_img_margin"
+                    android:layout_marginRight="@dimen/movie_detail_img_margin"
+                    android:scaleType="centerCrop"/>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/movie_year"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Movie Year"
+                        android:textSize="@dimen/movie_detail_year_size"
+                        android:layout_marginBottom="@dimen/movie_detail_marginBottom"/>
+                    <TextView
+                        android:id="@+id/movie_language"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="movie language"
+                        android:textSize="@dimen/movie_detail_length_size"
+                        android:textStyle="italic"
+                        android:layout_marginBottom="@dimen/movie_detail_marginBottom"/>
+                    <TextView
+                        android:id="@+id/movie_vote"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="2/10"
+                        android:textSize="@dimen/movie_detail_score_size"/>
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="@dimen/blank"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/blank"/>
 
-        <TextView
-            android:id="@+id/movie_abstract"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Here is the movie content"
-            android:layout_marginLeft="@dimen/margin_left_right"
-            android:layout_marginRight="@dimen/margin_left_right"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/line"
-            android:layout_marginLeft="@dimen/margin_left_right"
-            android:layout_marginRight="@dimen/margin_left_right"/>
+            <TextView
+                android:id="@+id/movie_abstract"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Here is the movie content"
+                android:layout_marginLeft="@dimen/margin_left_right"
+                android:layout_marginRight="@dimen/margin_left_right"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/line"
+                android:layout_marginLeft="@dimen/margin_left_right"
+                android:layout_marginRight="@dimen/margin_left_right"/>
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
     </LinearLayout>
 </ScrollView>

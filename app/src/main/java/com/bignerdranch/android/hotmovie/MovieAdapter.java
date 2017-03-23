@@ -12,6 +12,9 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 /**
  * Created by shixunliu on 22/3/17.
  */
@@ -22,18 +25,18 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     private Context mContext;
 
-    public class  MovieViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class  MovieViewHolder extends RecyclerView.ViewHolder{
 
         public final ImageView mImageView;
 
         public MovieViewHolder(View view) {
             super(view);
-            view.setOnClickListener(this);
+            ButterKnife.bind(this, view);
             mImageView = (ImageView) view.findViewById(R.id.movie_img);
         }
 
-        @Override
-        public void onClick(View view) {
+        @OnClick(R.id.movie_img)
+        public void click() {
             Movie movie = movieList.get(getLayoutPosition());
             Intent intent = MovieDetailActivity.newIntent(mContext, movie);
             mContext.startActivity(intent);
@@ -56,8 +59,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         String basePath = "http://image.tmdb.org/t/p/w185/";
         String movieImg = movie.getMoviePoster();
         String imgPath = basePath + movieImg;
-
-        Picasso.with(mContext).load(imgPath).into(holder.mImageView);
+        Picasso
+                .with(mContext)
+                .load(imgPath)
+                .placeholder(R.mipmap.ic_launcher)
+                .error(R.mipmap.ic_launcher)
+                .into(holder.mImageView);
     }
 
     @Override
